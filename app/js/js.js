@@ -38,7 +38,15 @@ function dealCards() {
 document.addEventListener("load", dealCards(), false);
 document.getElementById("newGame").addEventListener("click", function (e) {
     e.preventDefault();
-    dealCards();
+    var karty = document.getElementsByClassName("card");
+    for(var i = 0; i < karty.length; i++){
+        if(karty[i].classList.contains("flipped")){
+            karty[i].classList.remove("flipped");
+        }
+    }
+    setTimeout(function () {
+        dealCards();
+    }, 502);
 }, false);
 
 document.addEventListener("click", function (e) {

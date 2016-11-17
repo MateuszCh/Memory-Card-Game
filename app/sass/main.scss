@@ -1,10 +1,10 @@
 @import "base/normalize/normalize";
-@import "base/base";
+@import "base/fonts";
 
 @import 'helpers/variables';
 @import "helpers/mixins";
 @import 'helpers/placeholders';
-
+@import "base/base";
 @import 'layout/grid';
 @import 'layout/header';
 @import "layout/sidebar";

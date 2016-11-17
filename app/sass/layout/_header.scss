@@ -1,1 +1,39 @@
+header  {
+  background-color: $board-color;
+  margin-bottom: 20px;
+  padding: 10px 50px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom: 5px solid darken($board-color, 10%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  h1  {
+    margin: 0;
+    font-family: 'Alegreya', serif;
+    font-size: 2rem;
+    color: darken(#fff, 15%);
+    letter-spacing: 1px;
+    word-spacing: 5px;
+  }
+
+  button  {
+    border: none;
+    padding: 10px;
+    background-color: lighten($board-color, 10%);
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all .4s ease-in-out;
+    &:hover {
+      color: lighten($board-color, 10%);
+      background-color: white;
+    }
+  }
+
+  button:nth-child(1) {
+    margin-right: 10px;
+  }
+}
