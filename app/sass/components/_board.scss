@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: lighten($board-color, 10%);
+  background-color: lighten($board-color, 5%);
   padding: 10px;
   border-radius: 10px;
   box-shadow: 3px 2px 2px 3px darken($board-color, 10%);
@@ -42,11 +42,11 @@
         justify-content: center;
         border-radius: 5px;
         font-size: 1.8rem;
-        font-family: 'Alegreya', serif;
+        font-family: $headers-font;
         border: 2px solid darken($board-color, 10%);
         transition: all .2s ease-in-out;
         &:hover {
-          background-color: lighten($bg-color, 20%);
+          background-color: lighten($bg-color, 10%);
           color: white;
         }
       }
