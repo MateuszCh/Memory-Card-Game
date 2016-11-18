@@ -2,6 +2,46 @@
  * Created by Mateusz Chybiorz on 2016-10-19.
  */
 
+var cardFirst;
+var cardSecond;
+
+
+function clickingCard(event) {
+    if(!cardFirst && !cardSecond){
+        cardFirst = event.target;
+        flipped(event.target);
+    } else if(cardFirst && !cardSecond){
+        flipped(event.target);
+        cardSecond = event.target;
+    } else if(cardFirst && cardSecond){
+        if(cardFirst.previousSibling.src != cardSecond.previousSibling.src){
+            unflipped(cardFirst);
+            unflipped(cardSecond);
+        }
+        cardSecond = "";
+        cardFirst = event.target;
+        flipped(cardFirst);
+    }
+}
+
+function checkResult() {
+    var karty = document.getElementsByClassName("card");
+    for(var i = 0; i <karty.length; i++){
+        if(!karty[i].classList.contains("flipped")){
+            return false;
+        }
+    }
+    return true;
+}
+
+function flipped(e) {
+    e.parentNode.classList.add("flipped");
+}
+
+function unflipped(e) {
+    e.parentNode.classList.remove("flipped");
+}
+
 function shuffle() {
     var cards = ["czech", "france", "italy", "japan", "korea", "portugal", "russia", "uruguay", "czech", "france", "italy", "japan", "korea", "portugal", "russia", "uruguay"];
     var deal = [];
@@ -35,7 +75,44 @@ function dealCards() {
     }
 }
 
-document.addEventListener("load", dealCards(), false);
+// document.getElementById("openingStartButton").addEventListener("click", function (e) {
+//     dealCards();
+//     var opening = document.getElementById("opening");
+//     opening.classList.add("zwinC");
+//     setTimeout(function () {
+//         opening.style.display = "none";
+//         opening.classList.remove("zwinC");
+//     }, 500);
+// }, false);
+
+
+function newGame(event) {
+    dealCards();
+    var parent = event.target.parentNode;
+    parent.classList.add("zwinC");
+    setTimeout(function (parent) {
+        parent.style.display = "none";
+        parent.classList.remove("zwinC");
+    }, 500, parent);
+}
+
+
+var startButtons = document.getElementsByClassName("startButton");
+for(var i = 0; i < startButtons.length; i++){
+    startButtons[i].addEventListener("click", function (e) {
+        newGame(e);
+    }, false);
+}
+
+
+//
+// list.classList.add("zwinC");
+// setTimeout(function () {
+//     list.style.display = "none";
+//     list.classList.remove("zwinC");
+// }, 500);
+
+// document.addEventListener("load", dealCards(), false);
 document.getElementById("newGame").addEventListener("click", function (e) {
     e.preventDefault();
     var karty = document.getElementsByClassName("card");
@@ -52,16 +129,29 @@ document.getElementById("newGame").addEventListener("click", function (e) {
     }, 802);
 }, false);
 
+var resultDiv = document.getElementById("result");
+
 document.addEventListener("click", function (e) {
-    if(e.target && (e.target.classList.contains("front") || e.target.classList.contains("back"))){
-        if(e.target.parentNode.classList.contains("flipped")){
-            e.target.parentNode.classList.remove("flipped")
-        } else {
-            e.target.parentNode.classList.add("flipped");
+    if(e.target && e.target.classList.contains("back")){
+        clickingCard(e);
+        if(checkResult()){
+
+            setTimeout(function () {
+                resultDiv.style.display = "flex";
+                resultDiv.classList.add("rozwinC");
+                setTimeout(function () {
+                    resultDiv.classList.remove("rozwinC");
+                }, 500);
+            }, 1000);
         }
     }
 }, false);
 
+// list.style.display = "block";
+// list.classList.add("rozwinC");
+// setTimeout(function () {
+//     list.classList.remove("rozwinC");
+// }, 500)
 
 //opening section with start button, and click to score board - shuffle and deal cards, timer begin counting
 //board section  - timer counts duration of game, click card, if 2 consecutive cards are the same, then don't flip back
