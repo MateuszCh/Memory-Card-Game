@@ -6,7 +6,7 @@
   justify-content: space-around;
   background-color: lighten($board-color, 5%);
   padding: 10px;
-  border-radius: 10px;
+  //border-radius: 10px;
   box-shadow: 3px 2px 2px 3px darken($board-color, 10%);
   //border: 5px solid darken($board-color, 20%);
 
@@ -28,11 +28,11 @@
       transform-style: preserve-3d;
       transition: transform .5s ease-in-out;
       box-shadow: 2px 2px 3px 3px darken($board-color, 10%);
-      border-radius: 5px;
+      //border-radius: 5px;
 
       .front {
         transform: rotateY(180deg);
-        border-radius: 5px;
+        //border-radius: 5px;
       }
 
       .back  {
@@ -40,7 +40,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 5px;
+        //border-radius: 5px;
         font-size: 1.8rem;
         font-family: $headers-font;
         border: 2px solid darken($board-color, 10%);

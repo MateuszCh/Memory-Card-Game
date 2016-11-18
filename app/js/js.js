@@ -40,13 +40,16 @@ document.getElementById("newGame").addEventListener("click", function (e) {
     e.preventDefault();
     var karty = document.getElementsByClassName("card");
     for(var i = 0; i < karty.length; i++){
+        var duration = Math.floor(Math.random()*300);
         if(karty[i].classList.contains("flipped")){
-            karty[i].classList.remove("flipped");
+            setTimeout(function (i) {
+                karty[i].classList.remove("flipped");
+            }, duration, i);
         }
     }
     setTimeout(function () {
         dealCards();
-    }, 502);
+    }, 802);
 }, false);
 
 document.addEventListener("click", function (e) {
@@ -58,3 +61,9 @@ document.addEventListener("click", function (e) {
         }
     }
 }, false);
+
+
+//opening section with start button, and click to score board - shuffle and deal cards, timer begin counting
+//board section  - timer counts duration of game, click card, if 2 consecutive cards are the same, then don't flip back
+//after each click we check if all cards are flipped, if so then game is over, timer stops and after 2s
+//score section is displayed with result, score board of 10 best results, button to new game
