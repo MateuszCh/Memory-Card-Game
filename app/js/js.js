@@ -9,6 +9,33 @@ var startGame;
 var endGame;
 var resultTime;
 var counterInterval;
+var records = [];
+
+var scoreBoard = document.getElementById("scoreBoard");
+var scoreBoardButton = document.getElementById("scoreBoardButton");
+var closeScoreBoard = document.getElementById("closeScoreBoard");
+
+
+scoreBoardButton.addEventListener("click", function (e) {
+    scoreBoard.style.display = "flex";
+    scoreBoard.classList.add("rozwinC");
+    setTimeout(function () {
+        scoreBoard.classList.remove("rozwinC");
+    }, 501);
+}, false);
+
+closeScoreBoard.addEventListener("click", function (e) {
+    scoreBoard.classList.add("zwinC");
+    setTimeout(function () {
+        scoreBoard.style.display = "none";
+        scoreBoard.classList.remove("zwinC");
+    }, 500);
+}, false);
+
+function Record(result, nickname) {
+    this.result = result;
+    this.nickname = nickname;
+}
 
 function clickingCard(event) {
     if(!cardFirst && !cardSecond){
@@ -82,17 +109,6 @@ function dealCards() {
     }
 }
 
-// document.getElementById("openingStartButton").addEventListener("click", function (e) {
-//     dealCards();
-//     var opening = document.getElementById("opening");
-//     opening.classList.add("zwinC");
-//     setTimeout(function () {
-//         opening.style.display = "none";
-//         opening.classList.remove("zwinC");
-//     }, 500);
-// }, false);
-
-
 function newGame(event) {
     dealCards();
     var parent = event.target.parentNode;
@@ -103,13 +119,21 @@ function newGame(event) {
     }, 500, parent);
 }
 
+function counter() {
+    var counterEl = document.getElementById("counter");
+    endGame = new Date().getTime();
+    resultTime = endGame - startGame;
+    resultTime = resultTime / 1000;
+    resultTime = Math.round(resultTime * 10) / 10;
+    counterEl.textContent = resultTime;
+}
 
 var startButton = document.getElementById("startButton");
 
 startButton.addEventListener("click", function (e) {
     newGame(e);
     startGame = new Date().getTime();
-    counterInterval = setInterval(counter, 1);
+    counterInterval = setInterval(counter, 100);
 }, false);
 
 var saveScoreButton = document.getElementById("saveScore");
@@ -125,14 +149,6 @@ saveScoreButton.addEventListener("click", function (e) {
     }, 500);
 }, false);
 
-//
-// list.classList.add("zwinC");
-// setTimeout(function () {
-//     list.style.display = "none";
-//     list.classList.remove("zwinC");
-// }, 500);
-
-// document.addEventListener("load", dealCards(), false);
 document.getElementById("newGame").addEventListener("click", function (e) {
     e.preventDefault();
     var karty = document.getElementsByClassName("card");
@@ -150,7 +166,7 @@ document.getElementById("newGame").addEventListener("click", function (e) {
         }
         dealCards();
         startGame = new Date().getTime();
-        counterInterval = setInterval(counter, 1);
+        counterInterval = setInterval(counter, 100);
     }, 802);
     cardFirst = "";
     cardSecond = "";
@@ -180,22 +196,5 @@ document.addEventListener("click", function (e) {
     }
 }, false);
 
-function counter() {
-    var counterEl = document.getElementById("counter");
-    endGame = new Date().getTime();
-    resultTime = endGame - startGame;
-    resultTime = resultTime / 1000;
-    resultTime = Math.round(resultTime * 10) / 10;
-    counterEl.textContent = resultTime;
-}
 
-// list.style.display = "block";
-// list.classList.add("rozwinC");
-// setTimeout(function () {
-//     list.classList.remove("rozwinC");
-// }, 500)
 
-//opening section with start button, and click to score board - shuffle and deal cards, timer begin counting
-//board section  - timer counts duration of game, click card, if 2 consecutive cards are the same, then don't flip back
-//after each click we check if all cards are flipped, if so then game is over, timer stops and after 2s
-//score section is displayed with result, score board of 10 best results, button to new game

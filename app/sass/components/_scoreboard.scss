@@ -1,3 +1,77 @@
 .scoreBoard {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $board-color;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+
+  &>span  {
+    color: darken($board-color, 15%);
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 2rem;
+    font-weight: 900;
+    &:hover   {
+      color: white;
+    }
+  }
+
+  h2  {
+    font-family: $headers-font;
+    color: white;
+    margin: 100px 0 0 0;
+    font-size: 7rem;
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+  }
+
+  ul  {
+    font-family: $text-font;
+    margin: 50px 0 0 0;
+    background-color: white;
+    width: 500px;
+    color: darken($board-color, 10%);
+    padding: 10px;
+
+    li  {
+      font-size: 1.5rem;
+      //color: darken(white, 30%);
+      display: flex;
+      width: 100%;
+      margin: 10px 0;
+
+      span  {
+        display: inline-block;
+      }
+      span:nth-child(1){
+        width: 10%;
+      }
+      span:nth-child(2){
+        width: 70%;
+      }
+      span:nth-child(3){
+        padding-right: 10px;
+        width: 20%;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+  }
 }
