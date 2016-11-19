@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  z-index: 1000;
 
   h2  {
     margin: 0;
@@ -37,21 +38,48 @@
     color: white;
     font-family: $text-font;
   }
-  button  {
-    //width: 100px;
+
+  form  {
+    flex-grow: 1;
     margin-bottom: 200px;
-    border:none;
-    background-color: white;
-    padding: 30px 100px;
-    display: flex;
-    justify-content: center;
-    font-family: $headers-font;
-    font-size: 1.7rem;
-    color: darken($board-color, 10%);
-    transition: all .3s ease-in-out;
-    &:hover {
-      background-color: darken($board-color, 20%);
-      color: white;
+
+    fieldset  {
+      display: flex;
+      padding: 0;
+      //justify-content: space-between;
+      //align-items: center;
+      border: none;
+
+      input[type="text"]  {
+        width: 100%;
+        border: none;
+        font-family: $text-font;
+        height: 30px;
+        background-color: lighten($board-color, 10%);
+        color: white;
+        text-align: center;
+        transition: all .3s ease-in-out;
+
+        &:focus {
+          background-color: white;
+          color: darken($board-color, 10%);
+        }
+      }
+
+      input[type="submit"]  {
+        margin-top: 150px;
+        font-size: 2rem;
+        padding: 30px 100px;
+        border:none;
+        background-color: white;
+        font-family: $headers-font;
+        color: darken($board-color, 10%);
+        transition: all .3s ease-in-out;
+        &:hover {
+          background-color: darken($board-color, 20%);
+          color: white;
+        }
+      }
     }
   }
 }

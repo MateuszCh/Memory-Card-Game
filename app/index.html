@@ -11,7 +11,6 @@
         <p><time id="counter" class="counter">00:00</time></p>
         <nav>
             <button id="newGame">New Game</button>
-            <button>Scoreboard</button>
         </nav>
     </header>
     <section id="board" class="board">
@@ -19,12 +18,19 @@
     <section class="opening" id="opening">
         <h1>Fun with Flags</h1>
         <h2>Memory Card Game</h2>
-        <button class="startButton">Start</button>
+        <button class="startButton" id="startButton">Start</button>
+        <button class="scoreBoardButton" id="scoreBoardButton">Scoreboard</button>
     </section>
     <section class="result" id="result">
         <h2>You won!</h2>
         <h3>Your time is: 00:00</h3>
-        <button class="startButton">New Game</button>
+        <form>
+            <fieldset>
+                <input type="text" placeholder="Your name">
+                <input type="submit" class="saveScore" id="saveScore" value="OK">
+            </fieldset>
+        </form>
+
     </section>
     <section class="scoreBoard" id="scoreBoard">
 

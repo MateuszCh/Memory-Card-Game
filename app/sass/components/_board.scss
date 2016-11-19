@@ -33,6 +33,13 @@
       .front {
         transform: rotateY(180deg);
         //border-radius: 5px;
+        //opacity: .7;
+        //filter: grayscale(80%);
+        transition: all .5s ease-in-out;
+
+        &.grayish {
+          filter: sepia(70%);
+        }
       }
 
       .back  {

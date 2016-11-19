@@ -17,6 +17,9 @@ function clickingCard(event) {
         if(cardFirst.previousSibling.src != cardSecond.previousSibling.src){
             unflipped(cardFirst);
             unflipped(cardSecond);
+        } else if (cardFirst.previousSibling.src = cardSecond.previousSibling.src){
+            cardFirst.previousSibling.classList.add("grayish");
+            cardSecond.previousSibling.classList.add("grayish");
         }
         cardSecond = "";
         cardFirst = event.target;
@@ -97,13 +100,24 @@ function newGame(event) {
 }
 
 
-var startButtons = document.getElementsByClassName("startButton");
-for(var i = 0; i < startButtons.length; i++){
-    startButtons[i].addEventListener("click", function (e) {
-        newGame(e);
-    }, false);
-}
+var startButton = document.getElementById("startButton");
 
+startButton.addEventListener("click", function (e) {
+    newGame(e);
+}, false);
+
+var saveScoreButton = document.getElementById("saveScore");
+
+saveScoreButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("opening").style.display = "flex";
+    var resultDiv = document.getElementById("result");
+    resultDiv.classList.add("zwinC");
+    setTimeout(function () {
+        resultDiv.style.display = "none";
+        resultDiv.classList.remove("zwinC");
+    }, 500);
+}, false);
 
 //
 // list.classList.add("zwinC");
