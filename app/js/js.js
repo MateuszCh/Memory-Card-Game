@@ -5,6 +5,10 @@
 var cardFirst;
 var cardSecond;
 
+var startGame;
+var endGame;
+var resultTime;
+var counterInterval;
 
 function clickingCard(event) {
     if(!cardFirst && !cardSecond){
@@ -104,6 +108,8 @@ var startButton = document.getElementById("startButton");
 
 startButton.addEventListener("click", function (e) {
     newGame(e);
+    startGame = new Date().getTime();
+    counterInterval = setInterval(counter, 1);
 }, false);
 
 var saveScoreButton = document.getElementById("saveScore");
@@ -139,17 +145,30 @@ document.getElementById("newGame").addEventListener("click", function (e) {
         }
     }
     setTimeout(function () {
+        if(counterInterval){
+            clearInterval(counterInterval);
+        }
         dealCards();
+        startGame = new Date().getTime();
+        counterInterval = setInterval(counter, 1);
     }, 802);
+    cardFirst = "";
+    cardSecond = "";
 }, false);
 
 var resultDiv = document.getElementById("result");
+var resultTimeDiv = document.getElementById("time");
+
 
 document.addEventListener("click", function (e) {
     if(e.target && e.target.classList.contains("back")){
         clickingCard(e);
         if(checkResult()){
-
+            clearInterval(counterInterval);
+            endGame = new Date().getTime();
+            resultTime = endGame - startGame;
+            resultTime = resultTime / 1000;
+            resultTimeDiv.textContent = "Your time is: " + resultTime + " seconds.";
             setTimeout(function () {
                 resultDiv.style.display = "flex";
                 resultDiv.classList.add("rozwinC");
@@ -160,6 +179,15 @@ document.addEventListener("click", function (e) {
         }
     }
 }, false);
+
+function counter() {
+    var counterEl = document.getElementById("counter");
+    endGame = new Date().getTime();
+    resultTime = endGame - startGame;
+    resultTime = resultTime / 1000;
+    resultTime = Math.round(resultTime * 10) / 10;
+    counterEl.textContent = resultTime;
+}
 
 // list.style.display = "block";
 // list.classList.add("rozwinC");

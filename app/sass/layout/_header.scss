@@ -16,26 +16,37 @@ header  {
     color: darken(#fff, 15%);
     letter-spacing: 1px;
     word-spacing: 5px;
+    width: 33%;
   }
 
-  .counter  {
-    font-size: 2rem;
-    color: white;
-    font-family: $headers-font;
-  }
-
-  button  {
-    border: none;
-    padding: 10px;
-    background-color: lighten($board-color, 10%);
-    color: white;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: $headers-font;
-    transition: all .4s ease-in-out;
-    &:hover {
-      color: lighten($board-color, 10%);
-      background-color: white;
+  p   {
+    .counter  {
+      width: 33%;
+      font-size: 2rem;
+      color: white;
+      font-family: $headers-font;
     }
   }
+
+
+  nav   {
+    width: 33%;
+    display: flex;
+    justify-content: flex-end;
+    button  {
+      border: none;
+      padding: 10px;
+      background-color: lighten($board-color, 10%);
+      color: white;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: $headers-font;
+      transition: all .4s ease-in-out;
+      &:hover {
+        color: lighten($board-color, 10%);
+        background-color: white;
+      }
+    }
+  }
+
 }
