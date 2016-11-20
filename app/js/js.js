@@ -37,6 +37,38 @@ function Record(result, nickname) {
     this.nickname = nickname;
 }
 
+var scoreList = document.getElementById("scoreList");
+
+function createScoreBoardList(arr) {
+    scoreList.innerHTML = "";
+    for(var i = 0; i < arr.length; i++){
+        var item = document.createElement("li");
+        var position = document.createElement("span");
+        var nickname = document.createElement("span");
+        var timeResult = document.createElement("span");
+        position.textContent = i + 1;
+        nickname.textContent = arr[i].nickname;
+        timeResult.textContent = arr[i].result;
+        item.appendChild(position);
+        item.appendChild(nickname);
+        item.appendChild(timeResult);
+        scoreList.appendChild(item);
+    }
+}
+
+function makeScoreList(arr) {
+    if(arr.length > 1){
+        arr.sort(function (a,b) {
+            return a.result - b.result;
+        });
+    }
+    if(arr.length > 10){
+        arr.pop();
+    }
+    createScoreBoardList(arr);
+}
+
+
 function clickingCard(event) {
     if(!cardFirst && !cardSecond){
         cardFirst = event.target;
@@ -138,8 +170,11 @@ startButton.addEventListener("click", function (e) {
 
 var saveScoreButton = document.getElementById("saveScore");
 
+var nameOfPlayer = document.getElementById("nameOfPlayer");
+
 saveScoreButton.addEventListener("click", function (e) {
     e.preventDefault();
+    records.push(new Record(resultTime, nameOfPlayer.value));
     document.getElementById("opening").style.display = "flex";
     var resultDiv = document.getElementById("result");
     resultDiv.classList.add("zwinC");
@@ -147,6 +182,8 @@ saveScoreButton.addEventListener("click", function (e) {
         resultDiv.style.display = "none";
         resultDiv.classList.remove("zwinC");
     }, 500);
+    nameOfPlayer.value = "";
+    makeScoreList(records);
 }, false);
 
 document.getElementById("newGame").addEventListener("click", function (e) {
