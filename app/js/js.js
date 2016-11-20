@@ -37,16 +37,11 @@ function Record(result, nickname) {
     this.nickname = nickname;
 }
 
-
+var scoreLi = document.getElementById("scoreList");
 
 function createScoreBoardList(arr) {
-    var scoreLi = document.getElementById("scoreList");
-    if(scoreLi){
-        scoreLi.innerHTML = "";
-    }
+    scoreLi.innerHTML = "";
     for(var i = 0; i < arr.length; i++){
-        var uList = document.createElement("ul");
-        uList.id = "scoreList";
         var item = document.createElement("li");
         var position = document.createElement("span");
         var nickname = document.createElement("span");
@@ -57,8 +52,7 @@ function createScoreBoardList(arr) {
         item.appendChild(position);
         item.appendChild(nickname);
         item.appendChild(timeResult);
-        uList.appendChild(item);
-        scoreBoard.appendChild(uList);
+        scoreLi.appendChild(item);
     }
 };
 
@@ -169,6 +163,8 @@ function counter() {
 var startButton = document.getElementById("startButton");
 
 startButton.addEventListener("click", function (e) {
+    cardFirst = "";
+    cardSecond = "";
     newGame(e);
     startGame = new Date().getTime();
     counterInterval = setInterval(counter, 100);
@@ -194,6 +190,8 @@ saveScoreButton.addEventListener("click", function (e) {
 
 document.getElementById("newGame").addEventListener("click", function (e) {
     e.preventDefault();
+    cardFirst = "";
+    cardSecond = "";
     var karty = document.getElementsByClassName("card");
     for(var i = 0; i < karty.length; i++){
         var duration = Math.floor(Math.random()*300);
@@ -211,8 +209,6 @@ document.getElementById("newGame").addEventListener("click", function (e) {
         startGame = new Date().getTime();
         counterInterval = setInterval(counter, 100);
     }, 802);
-    cardFirst = "";
-    cardSecond = "";
 }, false);
 
 var resultDiv = document.getElementById("result");

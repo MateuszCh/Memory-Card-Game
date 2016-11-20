@@ -47,7 +47,6 @@
     background-color: white;
     width: 500px;
     color: darken($board-color, 10%);
-    padding: 10px;
 
     li  {
       font-size: 1.5rem;
@@ -69,9 +68,8 @@
         padding-right: 10px;
         width: 20%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
       }
     }
-
   }
 }
