@@ -37,11 +37,16 @@ function Record(result, nickname) {
     this.nickname = nickname;
 }
 
-var scoreList = document.getElementById("scoreList");
+
 
 function createScoreBoardList(arr) {
-    scoreList.innerHTML = "";
+    var scoreLi = document.getElementById("scoreList");
+    if(scoreLi){
+        scoreLi.innerHTML = "";
+    }
     for(var i = 0; i < arr.length; i++){
+        var uList = document.createElement("ul");
+        uList.id = "scoreList";
         var item = document.createElement("li");
         var position = document.createElement("span");
         var nickname = document.createElement("span");
@@ -52,9 +57,10 @@ function createScoreBoardList(arr) {
         item.appendChild(position);
         item.appendChild(nickname);
         item.appendChild(timeResult);
-        scoreList.appendChild(item);
+        uList.appendChild(item);
+        scoreBoard.appendChild(uList);
     }
-}
+};
 
 function makeScoreList(arr) {
     if(arr.length > 1){
