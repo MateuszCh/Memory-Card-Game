@@ -31,34 +31,40 @@ header  {
   }
 
   p   {
+    order: 3;
+    margin: 0;
+    text-align: center;
     .counter  {
       width: 100%;
       font-size: 2rem;
       color: white;
       font-family: $headers-font;
-      @include mq-not-mobile  {
-        width: 33%;
-      }
+    }
+    @include mq-not-mobile  {
+      width: 33%;
+      order: 2;
     }
   }
 
 
   nav   {
     width: 100%;
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     @include mq-not-mobile  {
       width: 33%;
       justify-content: flex-end;
+      order: 3;
     }
     button  {
+      margin: 0 10px;
       border: none;
       padding: 10px;
       background-color: lighten($board-color, 10%);
       color: white;
       border-radius: 5px;
       font-size: .7rem;
-
       font-family: $headers-font;
       transition: all .4s ease-in-out;
       &:hover {

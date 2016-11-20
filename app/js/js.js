@@ -188,6 +188,24 @@ saveScoreButton.addEventListener("click", function (e) {
     makeScoreList(records);
 }, false);
 
+
+var exitGameButton = document.getElementById("exitGame");
+
+exitGameButton.addEventListener("click", function (e) {
+    cardFirst = "";
+    cardSecond = "";
+    if(counterInterval){
+        clearInterval(counterInterval);
+    }
+    var opening = document.getElementById("opening");
+    opening.style.display = "flex";
+    opening.classList.add("rozwinC");
+    setTimeout(function () {
+        opening.classList.remove("rozwinC");
+    }, 500);
+}, false);
+
+
 document.getElementById("newGame").addEventListener("click", function (e) {
     e.preventDefault();
     cardFirst = "";
@@ -201,10 +219,10 @@ document.getElementById("newGame").addEventListener("click", function (e) {
             }, duration, i);
         }
     }
+    if(counterInterval){
+        clearInterval(counterInterval);
+    }
     setTimeout(function () {
-        if(counterInterval){
-            clearInterval(counterInterval);
-        }
         dealCards();
         startGame = new Date().getTime();
         counterInterval = setInterval(counter, 100);

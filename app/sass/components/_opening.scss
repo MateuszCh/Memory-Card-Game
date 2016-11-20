@@ -65,15 +65,23 @@
   }
 
   button:nth-child(3){
-    padding: 30px 100px;
+    padding: 20px 80px;
     font-size: 2rem;
+
+    @include mq-not-mobile  {
+      padding: 30px 100px;
+    }
+
   }
 
   button:nth-child(4){
     margin-top: 20px;
     margin-bottom: 200px;
-    padding: 15px 20px;
+    padding: 10px 15px;
     font-size: 1rem;
+    @include mq-not-mobile  {
+      padding: 15px 20px;
+    }
   }
 
 

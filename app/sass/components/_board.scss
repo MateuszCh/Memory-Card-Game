@@ -7,19 +7,22 @@
   background-color: lighten($board-color, 5%);
   padding: 10px;
   //border-radius: 10px;
-  margin-top: 70px;
+  margin-top: 20px;
 
   //border: 5px solid darken($board-color, 20%);
   @include mq-not-mobile  {
-    width: 60%;
+    width: 80%;
     box-shadow: 3px 2px 2px 3px darken($board-color, 10%);
     flex-wrap: wrap;
     margin-top: 0;
   }
+  @include laptops  {
+    width: 60%;
+  }
 
   .container  {
-    width: 17%;
-    height: 47px;
+    width: 58px;
+    height: 39px;
     position: relative;
     perspective: 800px;
     //background-color: yellow;
@@ -27,6 +30,11 @@
     margin: 5px;
 
     @include mq-not-mobile  {
+      width: 18%;
+      height: 100px;
+    }
+
+    @include laptops  {
       width: 192px;
       height: 128px;
     }
