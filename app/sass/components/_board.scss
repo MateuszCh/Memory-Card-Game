@@ -1,5 +1,5 @@
 .board  {
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -7,17 +7,29 @@
   background-color: lighten($board-color, 5%);
   padding: 10px;
   //border-radius: 10px;
-  box-shadow: 3px 2px 2px 3px darken($board-color, 10%);
+  margin-top: 70px;
+
   //border: 5px solid darken($board-color, 20%);
+  @include mq-not-mobile  {
+    width: 60%;
+    box-shadow: 3px 2px 2px 3px darken($board-color, 10%);
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
 
   .container  {
-    width: 192px;
-    height: 128px;
+    width: 17%;
+    height: 47px;
     position: relative;
     perspective: 800px;
     //background-color: yellow;
     padding: 2%;
     margin: 5px;
+
+    @include mq-not-mobile  {
+      width: 192px;
+      height: 128px;
+    }
 
     .card {
       width: 96%;
@@ -48,13 +60,17 @@
         align-items: center;
         justify-content: center;
         //border-radius: 5px;
-        font-size: 1.8rem;
+        font-size: 1rem;
+        text-align: center;
         font-family: $headers-font;
         border: 2px solid darken($board-color, 10%);
         transition: all .2s ease-in-out;
         &:hover {
           background-color: lighten($bg-color, 10%);
           color: white;
+        }
+        @include mq-not-mobile  {
+          font-size: 1.8rem;
         }
       }
 

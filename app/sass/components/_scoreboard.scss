@@ -15,8 +15,12 @@
     position: absolute;
     top: 5px;
     right: 15px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 900;
+
+    @include mq-not-mobile  {
+      font-size: 2rem;
+    }
     &:hover   {
       color: white;
     }
@@ -25,8 +29,9 @@
   h2  {
     font-family: $headers-font;
     color: white;
-    margin: 100px 0 0 0;
-    font-size: 7rem;
+    margin: 0;
+    margin-top: 50px;
+    font-size: 3rem;
     text-shadow: 0 1px 0 #ccc,
                  0 2px 0 #c9c9c9,
                  0 3px 0 #bbb,
@@ -39,21 +44,37 @@
                  0 5px 10px rgba(0,0,0,.25),
                  0 10px 10px rgba(0,0,0,.2),
                  0 20px 20px rgba(0,0,0,.15);
+
+    @include mq-not-mobile  {
+      margin-top: 100px;
+      font-size: 6rem;
+    }
+    @include laptops  {
+      font-size: 7rem;
+    }
   }
 
   ul  {
     font-family: $text-font;
     margin: 50px 0 0 0;
     background-color: white;
-    width: 500px;
+    width: 300px;
     color: darken($board-color, 10%);
 
+    @include mq-not-mobile  {
+      width: 500px;
+    }
+
     li  {
-      font-size: 1.5rem;
+      font-size: 1rem;
       //color: darken(white, 30%);
       display: flex;
       width: 100%;
       margin: 10px 0;
+
+      @include mq-not-mobile  {
+        font-size: 1.5rem;
+      }
 
       span  {
         display: inline-block;

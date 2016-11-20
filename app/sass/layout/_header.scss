@@ -8,43 +8,65 @@ header  {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+
+  @include mq-not-mobile  {
+    flex-direction: row;
+  }
 
   h1  {
     margin: 0;
     font-family: $headers-font;
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: darken(#fff, 15%);
     letter-spacing: 1px;
     word-spacing: 5px;
-    width: 33%;
+    width: 100%;
+    text-align: center;
+
+    @include mq-not-mobile  {
+      width: 33%;
+      font-size: 2rem;
+    }
   }
 
   p   {
     .counter  {
-      width: 33%;
+      width: 100%;
       font-size: 2rem;
       color: white;
       font-family: $headers-font;
+      @include mq-not-mobile  {
+        width: 33%;
+      }
     }
   }
 
 
   nav   {
-    width: 33%;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    @include mq-not-mobile  {
+      width: 33%;
+      justify-content: flex-end;
+    }
     button  {
       border: none;
       padding: 10px;
       background-color: lighten($board-color, 10%);
       color: white;
       border-radius: 5px;
-      font-size: 1rem;
+      font-size: .7rem;
+
       font-family: $headers-font;
       transition: all .4s ease-in-out;
       &:hover {
         color: lighten($board-color, 10%);
         background-color: white;
+      }
+      @include mq-not-mobile  {
+        font-size: 1rem;
       }
     }
   }
