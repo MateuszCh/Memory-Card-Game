@@ -16,6 +16,19 @@ var scoreBoardButton = document.getElementById("scoreBoardButton");
 var closeScoreBoard = document.getElementById("closeScoreBoard");
 
 
+function saveRecords() {
+    localStorage.setItem("records_array", JSON.stringify(records));
+}
+
+
+window.addEventListener("load", function () {
+    var localRecords = JSON.parse(localStorage.getItem("records_array"));
+    if(localRecords) {
+        records = localRecords;
+        makeScoreList(records);
+    }
+}, false);
+
 scoreBoardButton.addEventListener("click", function (e) {
     scoreBoard.style.display = "flex";
     scoreBoard.classList.add("rozwinC");
@@ -186,6 +199,7 @@ saveScoreButton.addEventListener("click", function (e) {
     }, 500);
     nameOfPlayer.value = "";
     makeScoreList(records);
+    saveRecords();
 }, false);
 
 
