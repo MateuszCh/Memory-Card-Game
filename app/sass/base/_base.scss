@@ -7,3 +7,7 @@ button:focus, button:active, button:focus:active,
 textarea:focus, textarea:active, textarea:focus:active{
   outline: none;
 }
+
+* {
+  box-sizing: border-box;
+}

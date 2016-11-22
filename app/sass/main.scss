@@ -3,17 +3,10 @@
 
 @import 'helpers/variables';
 @import "helpers/mixins";
-@import 'helpers/placeholders';
 @import "helpers/animations";
 @import "base/base";
-@import 'layout/grid';
 @import 'layout/header';
-@import "layout/sidebar";
 
-@import 'components/container';
-@import 'components/buttons';
-@import 'components/nav';
-@import 'components/inlinelist';
 @import "components/board";
 @import "components/opening";
 @import "components/scoreboard";

@@ -1,7 +1,7 @@
 header  {
   background-color: $board-color;
   margin-bottom: 20px;
-  padding: 10px 50px;
+  //padding: 10px 50px;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   border-bottom: 5px solid darken($board-color, 10%);
@@ -9,11 +9,10 @@ header  {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-
   @include mq-not-mobile  {
     flex-direction: row;
+    padding: 10px 50px;
   }
-
   h1  {
     margin: 0;
     font-family: $headers-font;
@@ -21,38 +20,35 @@ header  {
     color: darken(#fff, 15%);
     letter-spacing: 1px;
     word-spacing: 5px;
-    width: 100%;
     text-align: center;
 
     @include mq-not-mobile  {
       width: 33%;
       font-size: 2rem;
+      text-align: left;
     }
   }
-
   p   {
-    order: 3;
     margin: 0;
     text-align: center;
     .counter  {
-      width: 100%;
-      font-size: 2rem;
+      font-size: 1.7rem;
       color: white;
       font-family: $headers-font;
+      @include mq-not-mobile  {
+        font-size: 2rem;
+      }
     }
     @include mq-not-mobile  {
       width: 33%;
-      order: 2;
     }
   }
-
-
   nav   {
-    width: 100%;
-    margin: 10px 0;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     @include mq-not-mobile  {
+      margin: 0;
       width: 33%;
       justify-content: flex-end;
       order: 3;
@@ -76,5 +72,4 @@ header  {
       }
     }
   }
-
 }

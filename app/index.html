@@ -9,13 +9,17 @@
 <body>
     <header>
         <h1>Fun with Flags</h1>
-        <p><time id="counter" class="counter">00:00</time></p>
         <nav>
             <button id="newGame">New Game</button>
             <button id="exitGame">Exit Game</button>
         </nav>
+        <p><time id="counter" class="counter">00:00</time></p>
     </header>
-    <section id="board" class="board">
+    <section id="container">
+        <section id="dummy"></section>
+        <section id="board" class="board">
+    </section>
+
     </section>
     <section class="opening" id="opening">
         <h1>Fun with Flags</h1>
@@ -28,7 +32,7 @@
         <h3 id="time">Your time is: 00:00</h3>
         <form>
             <fieldset>
-                <input type="text" placeholder="Your name" id="nameOfPlayer" maxlength="20">
+                <input type="text" placeholder="Your name" id="nameOfPlayer" maxlength="14">
                 <input type="submit" class="saveScore" id="saveScore" value="OK">
             </fieldset>
         </form>
