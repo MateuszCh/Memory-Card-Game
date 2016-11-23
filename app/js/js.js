@@ -1,56 +1,43 @@
 /**
  * Created by Mateusz Chybiorz on 2016-10-19.
  */
-
+//variables
 var cardFirst;
 var cardSecond;
-
 var startGame;
 var endGame;
 var resultTime;
 var counterInterval;
 var records = [];
 
+//opening section
+var opening = document.getElementById("opening");
+//scoreboard section
 var scoreBoard = document.getElementById("scoreBoard");
+//result section
+var resultDiv = document.getElementById("result");
+//time element for showing result
+var resultTimeDiv = document.getElementById("time");
+//scoreboard list
+var scoreLi = document.getElementById("scoreList");
+//text input for player's name
+var nameOfPlayer = document.getElementById("nameOfPlayer");
+//buttons
+var saveScoreButton = document.getElementById("saveScore");
+var startButton = document.getElementById("startButton");
+var exitGameButton = document.getElementById("exitGame");
+var newGameButton = document.getElementById("newGame");
 var scoreBoardButton = document.getElementById("scoreBoardButton");
 var closeScoreBoard = document.getElementById("closeScoreBoard");
-
 
 function saveRecords() {
     localStorage.setItem("records_array", JSON.stringify(records));
 }
 
-
-window.addEventListener("load", function () {
-    var localRecords = JSON.parse(localStorage.getItem("records_array"));
-    if(localRecords) {
-        records = localRecords;
-        makeScoreList(records);
-    }
-}, false);
-
-scoreBoardButton.addEventListener("click", function (e) {
-    scoreBoard.style.display = "flex";
-    scoreBoard.classList.add("rozwinC");
-    setTimeout(function () {
-        scoreBoard.classList.remove("rozwinC");
-    }, 501);
-}, false);
-
-closeScoreBoard.addEventListener("click", function (e) {
-    scoreBoard.classList.add("zwinC");
-    setTimeout(function () {
-        scoreBoard.style.display = "none";
-        scoreBoard.classList.remove("zwinC");
-    }, 500);
-}, false);
-
 function Record(result, nickname) {
     this.result = result;
     this.nickname = nickname;
 }
-
-var scoreLi = document.getElementById("scoreList");
 
 function createScoreBoardList(arr) {
     scoreLi.innerHTML = "";
@@ -67,7 +54,7 @@ function createScoreBoardList(arr) {
         item.appendChild(timeResult);
         scoreLi.appendChild(item);
     }
-};
+}
 
 function makeScoreList(arr) {
     if(arr.length > 1){
@@ -80,7 +67,6 @@ function makeScoreList(arr) {
     }
     createScoreBoardList(arr);
 }
-
 
 function clickingCard(event) {
     if(!cardFirst && !cardSecond){
@@ -154,16 +140,6 @@ function dealCards() {
     }
 }
 
-function newGame(event) {
-    dealCards();
-    var parent = event.target.parentNode;
-    parent.classList.add("zwinC");
-    setTimeout(function (parent) {
-        parent.style.display = "none";
-        parent.classList.remove("zwinC");
-    }, 500, parent);
-}
-
 function counter() {
     var counterEl = document.getElementById("counter");
     endGame = new Date().getTime();
@@ -173,57 +149,54 @@ function counter() {
     counterEl.textContent = resultTime;
 }
 
-var startButton = document.getElementById("startButton");
-
-startButton.addEventListener("click", function (e) {
+function clearCards() {
     cardFirst = "";
     cardSecond = "";
-    newGame(e);
+}
+
+function rozwinC(el) {
+    el.style.display = "flex";
+    el.classList.add("rozwinC");
+    setTimeout(function () {
+        el.classList.remove("rozwinC");
+    }, 500);
+}
+
+function zwinC(el) {
+    el.classList.add("zwinC");
+    setTimeout(function () {
+        el.style.display = "none";
+        el.classList.remove("zwinC");
+    }, 500);
+}
+
+window.addEventListener("load", function () {
+    var localRecords = JSON.parse(localStorage.getItem("records_array"));
+    if(localRecords) {
+        records = localRecords;
+        makeScoreList(records);
+    }
+}, false);
+
+startButton.addEventListener("click", function (e) {
+    clearCards();
+    dealCards();
+    zwinC(opening);
     startGame = new Date().getTime();
     counterInterval = setInterval(counter, 100);
 }, false);
 
-var saveScoreButton = document.getElementById("saveScore");
-
-var nameOfPlayer = document.getElementById("nameOfPlayer");
-
-saveScoreButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    records.push(new Record(resultTime, nameOfPlayer.value));
-    document.getElementById("opening").style.display = "flex";
-    var resultDiv = document.getElementById("result");
-    resultDiv.classList.add("zwinC");
-    setTimeout(function () {
-        resultDiv.style.display = "none";
-        resultDiv.classList.remove("zwinC");
-    }, 500);
-    nameOfPlayer.value = "";
-    makeScoreList(records);
-    saveRecords();
+scoreBoardButton.addEventListener("click", function () {
+    rozwinC(scoreBoard);
 }, false);
 
-
-var exitGameButton = document.getElementById("exitGame");
-
-exitGameButton.addEventListener("click", function (e) {
-    cardFirst = "";
-    cardSecond = "";
-    if(counterInterval){
-        clearInterval(counterInterval);
-    }
-    var opening = document.getElementById("opening");
-    opening.style.display = "flex";
-    opening.classList.add("rozwinC");
-    setTimeout(function () {
-        opening.classList.remove("rozwinC");
-    }, 500);
+closeScoreBoard.addEventListener("click", function () {
+    zwinC(scoreBoard);
 }, false);
 
-
-document.getElementById("newGame").addEventListener("click", function (e) {
+newGameButton.addEventListener("click", function (e) {
     e.preventDefault();
-    cardFirst = "";
-    cardSecond = "";
+    clearCards();
     var karty = document.getElementsByClassName("card");
     for(var i = 0; i < karty.length; i++){
         var duration = Math.floor(Math.random()*300);
@@ -243,9 +216,14 @@ document.getElementById("newGame").addEventListener("click", function (e) {
     }, 802);
 }, false);
 
-var resultDiv = document.getElementById("result");
-var resultTimeDiv = document.getElementById("time");
+exitGameButton.addEventListener("click", function () {
+    clearCards();
+    if(counterInterval){
+        clearInterval(counterInterval);
+    }
 
+    rozwinC(opening);
+}, false);
 
 document.addEventListener("click", function (e) {
     if(e.target && e.target.classList.contains("back")){
@@ -257,12 +235,18 @@ document.addEventListener("click", function (e) {
             resultTime = resultTime / 1000;
             resultTimeDiv.textContent = "Your time is: " + resultTime + " seconds.";
             setTimeout(function () {
-                resultDiv.style.display = "flex";
-                resultDiv.classList.add("rozwinC");
-                setTimeout(function () {
-                    resultDiv.classList.remove("rozwinC");
-                }, 500);
+                rozwinC(resultDiv);
             }, 1000);
         }
     }
+}, false);
+
+saveScoreButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    records.push(new Record(resultTime, nameOfPlayer.value));
+    opening.style.display = "flex";
+    zwinC(resultDiv);
+    nameOfPlayer.value = "";
+    makeScoreList(records);
+    saveRecords();
 }, false);
