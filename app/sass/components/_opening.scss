@@ -10,9 +10,9 @@
   justify-content: space-around;
   align-items: center;
   z-index: 5;
-  h1  {
+  h2  {
     margin: 0;
-    margin-top: 50px;
+    margin-top: 3.125rem;
     font-family: $headers-font;
     color: white;
     font-size: 3rem;
@@ -30,13 +30,13 @@
                  0 20px 20px rgba(0,0,0,.15);
     @include mq-not-mobile  {
       font-size: 6rem;
-      margin-top: 100px;
+      margin-top: 6.25rem;
     }
     @include laptops  {
       font-size: 10rem;
     }
   }
-  h2  {
+  h3  {
     flex-grow: 1;
     font-size: 1.5rem;
     color: white;
@@ -54,18 +54,18 @@
     }
   }
   button:nth-child(3){
-    padding: 20px 80px;
+    padding: 1.25rem 5rem;
     font-size: 2rem;
     @include mq-not-mobile  {
-      padding: 30px 100px;
+      padding: 1.875rem 6.25rem;
     }
   }
   button:nth-child(4){
-    margin: 20px 0;
-    padding: 10px 15px;
+    margin: 1.25rem 0;
+    padding: .625rem .9375rem;
     font-size: 1rem;
     @include mq-not-mobile  {
-      padding: 15px 20px;
+      padding: .9375rem 1.25rem;
     }
   }
 }

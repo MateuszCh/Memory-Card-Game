@@ -12,7 +12,7 @@
   z-index: 1000;
   h2  {
     margin: 0;
-    margin-top: 50px;
+    margin-top: 3.125rem;
     font-family: $headers-font;
     color: white;
     font-size: 3rem;
@@ -30,7 +30,7 @@
                  0 20px 20px rgba(0,0,0,.15);
     @include mq-not-mobile  {
       font-size: 6rem;
-      margin-top: 100px;
+      margin-top: 6.25rem;
     }
     @include laptops  {
       font-size: 10rem;
@@ -43,7 +43,7 @@
     font-family: $text-font;
   }
   form  {
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
     fieldset  {
       display: flex;
       padding: 0;
@@ -63,9 +63,9 @@
         }
       }
       input[type="submit"]  {
-        margin-top: 40px;
+        margin-top: 2.5rem;
         font-size: 2rem;
-        padding: 20px 80px;
+        padding: 1.25rem 5rem;
         border:none;
         background-color: white;
         font-family: $headers-font;
@@ -76,7 +76,7 @@
           color: white;
         }
         @include mq-not-mobile  {
-          padding: 30px 100px;
+          padding: 1.875rem 6.25rem;
         }
       }
     }

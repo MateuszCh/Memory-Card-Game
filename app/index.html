@@ -15,31 +15,33 @@
         </nav>
         <p><time id="counter" class="counter">00:00</time></p>
     </header>
-    <section class="containerForBoard">
-        <section class="siblingOfBoard"></section>
-        <section id="board" class="board"></section>
-    </section>
-    <section class="opening" id="opening">
-        <h1>Fun with Flags</h1>
-        <h2>Memory Card Game</h2>
-        <button class="startButton" id="startButton">Start</button>
-        <button class="scoreBoardButton" id="scoreBoardButton">Scoreboard</button>
-    </section>
-    <section class="result" id="result">
-        <h2>You won!</h2>
-        <h3 id="time">Your time is: 00:00</h3>
-        <form>
-            <fieldset>
-                <input type="text" placeholder="Your name" id="nameOfPlayer" maxlength="14">
-                <input type="submit" class="saveScore" id="saveScore" value="OK">
-            </fieldset>
-        </form>
-    </section>
-    <section class="scoreBoard" id="scoreBoard">
-        <span id="closeScoreBoard">X</span>
-        <h2>Scoreboard</h2>
-        <ul class="scoreList" id="scoreList"></ul>
-    </section>
+    <main>
+        <div class="containerForBoard">
+            <div class="siblingOfBoard"></div>
+            <div id="board" class="board"></div>
+        </div>
+        <section class="opening" id="opening">
+            <h2>Fun with Flags</h2>
+            <h3>Memory Card Game</h3>
+            <button class="startButton" id="startButton">Start</button>
+            <button class="scoreBoardButton" id="scoreBoardButton">Scoreboard</button>
+        </section>
+        <section class="result" id="result">
+            <h2>You won!</h2>
+            <h3 id="time">Your time is: 00:00</h3>
+            <form>
+                <fieldset>
+                    <input type="text" placeholder="Your name" id="nameOfPlayer" maxlength="14">
+                    <input type="submit" class="saveScore" id="saveScore" value="OK">
+                </fieldset>
+            </form>
+        </section>
+        <section class="scoreBoard" id="scoreBoard">
+            <span id="closeScoreBoard">X</span>
+            <h2>Scoreboard</h2>
+            <ul class="scoreList" id="scoreList"></ul>
+        </section>
+    </main>
     <script src="minjs/main.js"></script>
 </body>
 </html>

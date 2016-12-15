@@ -1,9 +1,8 @@
 header  {
   background-color: $board-color;
-  margin-bottom: 20px;
-  //padding: 10px 50px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
+  margin-bottom: 1.25rem;
+  border-bottom-left-radius: .4375rem;
+  border-bottom-right-radius: .4375rem;
   border-bottom: 5px solid darken($board-color, 10%);
   display: flex;
   align-items: center;
@@ -11,17 +10,16 @@ header  {
   flex-direction: column;
   @include mq-not-mobile  {
     flex-direction: row;
-    padding: 10px 50px;
+    padding: .625rem 3.125rem;
   }
   h1  {
     margin: 0;
     font-family: $headers-font;
     font-size: 1.7rem;
     color: darken(#fff, 15%);
-    letter-spacing: 1px;
-    word-spacing: 5px;
+    letter-spacing: .0625rem;
+    word-spacing: .3125rem;
     text-align: center;
-
     @include mq-not-mobile  {
       width: 33%;
       font-size: 2rem;
@@ -44,7 +42,7 @@ header  {
     }
   }
   nav   {
-    margin-top: 5px;
+    margin-top: .3125rem;
     display: flex;
     justify-content: center;
     @include mq-not-mobile  {
@@ -54,12 +52,12 @@ header  {
       order: 3;
     }
     button  {
-      margin: 0 10px;
+      margin: 0 .625rem;
       border: none;
-      padding: 10px;
+      padding: .625rem;
       background-color: lighten($board-color, 10%);
       color: white;
-      border-radius: 5px;
+      border-radius: .3125rem;
       font-size: .7rem;
       font-family: $headers-font;
       transition: all .4s ease-in-out;

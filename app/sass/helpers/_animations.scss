@@ -1,37 +1,4 @@
-@keyframes powiekszenie {
-  0%  {
-    //height: 0;
-    opacity: 0;
-  }
-  100%  {
-    //height: 100vh;
-    opacity: 1;
-  }
-}
-
-@keyframes schowaj {
-  0%  {
-    opacity: 1;
-  }
-  100%  {
-    opacity: 0;
-  }
-}
-
-.show {
-  animation-name: powiekszenie;
-  animation-duration: .5s;
-  animation-timing-function: cubic-bezier(.5,.2,.3,1);
-}
-
-.hide {
-  animation-name: schowaj;
-  animation-duration: .5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.5,.2,.3,1);
-}
-
-@keyframes zwin {
+@keyframes slideU {
   0%  {
     transform: scaleY(1);
   }
@@ -40,7 +7,7 @@
   }
 }
 
-@keyframes rozwin {
+@keyframes slideD {
   0%  {
     transform: scaleY(0);
   }
@@ -49,15 +16,15 @@
   }
 }
 
-.zwinC  {
-  animation-name: zwin;
+.slideUp  {
+  animation-name: slideU;
   animation-duration: .5s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(.5,.2,.3,1);
 }
 
-.rozwinC  {
-  animation-name: rozwin;
+.slideDown  {
+  animation-name: slideD;
   animation-duration: .5s;
   animation-timing-function: cubic-bezier(.5,.2,.3,1);
 }

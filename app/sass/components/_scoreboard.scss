@@ -12,8 +12,8 @@
   &>span  {
     color: darken($board-color, 15%);
     position: absolute;
-    top: 5px;
-    right: 15px;
+    top: .3125rem;
+    right: .9375rem;
     font-size: 1.5rem;
     font-weight: 900;
     @include mq-not-mobile  {
@@ -27,7 +27,7 @@
     font-family: $headers-font;
     color: white;
     margin: 0;
-    margin-top: 50px;
+    margin-top: 3.125rem;
     font-size: 3rem;
     text-shadow: 0 1px 0 #ccc,
                  0 2px 0 #c9c9c9,
@@ -41,9 +41,8 @@
                  0 5px 10px rgba(0,0,0,.25),
                  0 10px 10px rgba(0,0,0,.2),
                  0 20px 20px rgba(0,0,0,.15);
-
     @include mq-not-mobile  {
-      margin-top: 100px;
+      margin-top: 6.25rem;
       font-size: 6rem;
     }
     @include laptops  {
@@ -53,32 +52,32 @@
   ul  {
     font-family: $text-font;
     padding: 0;
-    margin: 50px 0 0 0;
+    margin-top: 3.125rem;
     background-color: white;
     width: 90%;
     color: darken($board-color, 10%);
     @include mq-not-mobile  {
-      width: 500px;
+      width: 31.25rem;
     }
     li  {
       font-size: 1rem;
       display: flex;
       width: 100%;
-      margin: 10px 0;
+      margin: .625rem 0;
       @include mq-not-mobile  {
         font-size: 1.3rem;
       }
       span:nth-child(1){
         text-align: right;
-        padding-right: 5px;
+        padding-right: .3125rem;
         width: 10%;
       }
       span:nth-child(2){
-        padding-left: 5px;
+        padding-left: .3125rem;
         width: 70%;
       }
       span:nth-child(3){
-        padding-right: 10px;
+        padding-right: .625rem;
         width: 20%;
       }
     }
