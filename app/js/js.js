@@ -81,7 +81,9 @@
                 unflipped(cardSecond);
             } else if (cardFirst.previousSibling.src = cardSecond.previousSibling.src){
                 cardFirst.previousSibling.classList.add("grayish");
+                cardFirst.classList.remove("back");
                 cardSecond.previousSibling.classList.add("grayish");
+                cardSecond.classList.remove("back");
             }
             cardSecond = "";
             cardFirst = event.target;

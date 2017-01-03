@@ -48,11 +48,14 @@
       display: flex;
       padding: 0;
       border: none;
+      width: 50%;
+      margin: 0 auto;
+      flex-direction: column;
       input[type="text"]  {
         width: 100%;
         border: none;
         font-family: $text-font;
-        padding: 3% 0;
+        padding: .375rem 0;
         background-color: lighten($board-color, 10%);
         color: white;
         text-align: center;
@@ -63,6 +66,7 @@
         }
       }
       input[type="submit"]  {
+        width: 100%;
         margin-top: 2.5rem;
         font-size: 2rem;
         padding: 1.25rem 5rem;

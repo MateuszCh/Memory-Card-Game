@@ -42,6 +42,7 @@
         .front {
           transform: rotateY(180deg);
           transition: all .5s ease-in-out;
+          z-index: 10000;
           &.grayish {
             filter: sepia(70%);
           }
